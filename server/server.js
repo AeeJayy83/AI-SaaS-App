@@ -24,7 +24,4 @@ app.get("/", (req,res) => {
 app.use("/api/ai", aiRouter);
 app.use("/api/user", userRouter)
 
-
-app.listen(PORT, () => {
-    console.log("server is listening to port" , PORT);
-})
+export default app;
