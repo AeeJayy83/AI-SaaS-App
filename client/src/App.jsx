@@ -9,7 +9,7 @@ import RemoveBackground from "./pages/RemoveBackground";
 import RemoveObject from "./pages/RemoveObject";
 import ReviewResume from "./pages/ReviewResume";
 import WriteArticle from "./pages/WriteArticle";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import { Toaster } from "react-hot-toast";
 
 
