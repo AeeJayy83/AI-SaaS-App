@@ -1,9 +1,5 @@
+
 {
-  "functions": {
-    "server.js": {
-      "runtime": "now-node@3"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
