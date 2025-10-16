@@ -24,5 +24,5 @@ app.use("/api/ai",requireAuth(), aiRouter);
 app.use("/api/user",requireAuth(), userRouter)
 
 app.listen(PORT, () => {
-    console.log("server is running at ", PORT)
+    console.log("server is running at port", PORT)
 })
