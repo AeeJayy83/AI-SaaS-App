@@ -1,6 +1,6 @@
 import { Axis3DIcon, Edit, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Markdown from "react-markdown";
 import { useAuth } from "@clerk/clerk-react";
 import toast from "react-hot-toast";
@@ -30,23 +30,27 @@ function WriteArticle() {
             setLoading(true);
             const prompt = `Write an article about ${input} in ${selectedLength.text}`
 
-            const { data } = await axios.post("/api/ai/generate-article", {prompt, length: selectedLength.length}, {
-                headers: {Authorization: `Bearer ${await getToken()}`}
+            const { data } = await axios.post("/api/ai/generate-article", { prompt, length: selectedLength.length }, {
+                headers: { Authorization: `Bearer ${await getToken()}` }
             })
 
-            if(data.success) {
+            if (data.success) {
                 setContent(data.content)
             } else {
                 toast.error(data.message)
             }
         } catch (error) {
-            toast.error(error.message) 
-            
+            toast.error(error.message)
+
         } finally {
             setLoading(false);
         }
 
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className="flex flex-col items-start justify-start h-screen">
@@ -63,7 +67,7 @@ function WriteArticle() {
                     <p className="mt-6 text-sm font-medium">Article Topic</p>
                     <input
                         value={input}
-                        onChange={(e) => {setInput(e.target.value)}}
+                        onChange={(e) => { setInput(e.target.value) }}
                         type="text"
                         className="w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300"
                         placeholder="The future of Artificial Intelligence...."

@@ -1,5 +1,5 @@
 import { FileText, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -42,6 +42,10 @@ function ReviewResume() {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className="flex flex-col items-start justify-start h-screen">

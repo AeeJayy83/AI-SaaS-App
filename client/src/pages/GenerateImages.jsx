@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Image, Sparkles } from "lucide-react";
 import toast from 'react-hot-toast';
 import axios from "axios";
@@ -42,6 +42,10 @@ function GenerateImages() {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className="flex flex-col items-start justify-start h-screen">

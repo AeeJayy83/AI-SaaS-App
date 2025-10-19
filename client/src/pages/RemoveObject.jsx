@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Scissors, Sparkles } from "lucide-react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -47,6 +47,10 @@ function RemoveObject() {
         }
     }
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <div className="flex flex-col items-start justify-start h-screen">
             <nav className="w-full px-4 min-h-20 border-b border-gray-400 flex items-center justify-between pr-4">
@@ -61,7 +65,7 @@ function RemoveObject() {
                     </div>
                     <p className="mt-6 text-sm font-medium">Upload image</p>
 
-                    <input onChange={(e) => setInput(e.target.files[0])} type="file" accept="image/*" className="w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 text-gray-600" required/>
+                    <input onChange={(e) => setInput(e.target.files[0])} type="file" accept="image/*" className="w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300 text-gray-600" required />
 
                     <p className="mt-6 text-sm font-medium">Describe object name to remove</p>
 

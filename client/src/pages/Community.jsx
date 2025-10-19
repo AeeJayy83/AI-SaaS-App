@@ -57,6 +57,7 @@ function Community() {
         if(user) {
             fetchCreations();
         }
+        window.scrollTo(0,0);
     }, [])
 
     return !loading ? (
